@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhai Bon Health Care - Corporate Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f3057;
+            --primary-dark: #0a2342;
+            --secondary: #8b5cf6;
+            --accent: #f59e0b;
+            --gold: #d4af37;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --success: #10b981;
+            --error: #ef4444;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --glass-bg: rgba(255, 255, 255, 0.8);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f3057 0%, #0a2342 100%);
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            background: rgba(15, 48, 87, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-en {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo-jp {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 0;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-btn {
+            background: var(--gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 100px 0 60px;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-desc {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--gold);
+            color: var(--primary-dark);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: var(--primary-dark);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--gold);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .feature-desc {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        /* Verification Section */
+        .verification {
+            padding: 80px 0;
+            background: url('https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1842&q=80') no-repeat center center;
+            background-size: cover;
+            position: relative;
+        }
+        
+        .verification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f3057 0%, rgba(15, 48, 87, 0.9) 100%);
+        }
+        
+        .verification-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .verification-badge {
+            width: 100px;
+            height: 100px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 40px;
+            color: var(--primary-dark);
+        }
+        
+        .verification-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .verification-desc {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .verify-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        
+        /* Corporate Info Section */
+        .corporate {
+            padding: 80px 0;
+            background: var(--primary-dark);
+        }
+        
+        .corporate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .corporate-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .corporate-card-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            opacity: 0.7;
+        }
+        
+        .info-value {
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            padding: 60px 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 968px) {
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .features-grid, .corporate-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40">
+                        <defs>
+                            <linearGradient id="mainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#818cf8" />
+                                <stop offset="100%" stop-color="#f472b6" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="url(#mainGrad)" stroke-width="6" />
+                        <path d="M65,65 L80,80" stroke="url(#mainGrad)" stroke-width="6" stroke-linecap="round" />
+                        <circle cx="40" cy="40" r="15" fill="none" stroke="url(#mainGrad)" stroke-width="4" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-en">Bhai Bon Health Care</div>
+                    <div class="logo-jp">合同会社バイボンヘルスケア</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Global</a></li>
+                    <li><a href="#">Verify</a></li>
+                </ul>
+            </nav>
+            
+            <button class="nav-btn">Partner Portal <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content fade-in">
+            <div class="hero-subtitle">Japanese Registered Global Enterprise</div>
+            <h1 class="hero-title">Healthcare Innovation Beyond Borders</h1>
+            <p class="hero-desc">Bhai Bon Health Care is a Tokyo-based global enterprise unifying healthcare innovation, IT solutions, and international trade under one visionary platform.</p>
+            <div class="hero-btns">
+                <button class="btn-primary">Explore Our Services <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-secondary">Verify Documents</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Our Premium Services</h2>
+                <p>Comprehensive solutions for healthcare, technology, and global trade</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+                    <h3 class="feature-title">Healthcare Solutions</h3>
+                    <p class="feature-desc">Export of Japanese medical equipment, healthcare consultancy, and medical staffing solutions across Asia.</p>
+                    <a href="#" class="btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3 class="feature-title">IT Development</h3>
+                    <p class="feature-desc">Custom healthcare IT solutions, AI integration, and digital transformation services for medical institutions.</p>
+                    <a href="#" class="btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="feature-title">Global Trade</h3>
+                    <p class="feature-desc">Facilitation of international trade between Japanese healthcare suppliers and global markets.</p>
+                    <a href="#" class="btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verification Section -->
+    <section class="verification">
+        <div class="container">
+            <div class="verification-content fade-in">
+                <div class="verification-badge">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h2 class="verification-title">Document Verification System</h2>
+                <p class="verification-desc">Verify the authenticity of Bhai Bon Health Care documents using our secure blockchain-based verification system</p>
+                
+                <div class="verify-form">
+                    <div class="form-group">
+                        <label for="verify-hash">Enter Document Hash</label>
+                        <input type="text" id="verify-hash" placeholder="Paste hash code here">
+                    </div>
+                    <button class="btn-primary" style="width: 100%">Verify Document</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corporate Information Section -->
+    <section class="corporate">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Corporate Identity</h2>
+                <p>Official registration details and corporate information</p>
+            </div>
+            
+            <div class="corporate-grid">
+                <div class="corporate-card fade-in">
+                    <h3 class="corporate-card-title">Company Details</h3>
+                    <div class="info-row">
+                        <span class="info-label">Company Name</span>
+                        <span class="info-value">合同会社 Bhai Bon Health Care</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Registration Number</span>
+                        <span class="info-value">9011503006276</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Establishment Date</span>
+                        <span class="info-value">October 30, 2024</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Legal Structure</span>
+                        <span class="info-value">Godo Kaisha (LLC)</span>
+                    </div>
+                </div>
+                
+                <div class="corporate-card fade-in">
+                    <h3 class="corporate-card-title">Headquarters</h3>
+                    <div class="info-row">
+                        <span class="info-label">Address</span>
+                        <span class="info-value">東京都北区上十条３丁目１８番４号</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Jurisdiction</span>
+                        <span class="info-value">Tokyo, Japan</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Authority</span>
+                        <span class="info-value">Tokyo Labour Bureau</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Supervisory Office</span>
+                        <span class="info-value">Oji Labour Standards Inspection Office</span>
+                    </div>
+                </div>
+                
+                <div class="corporate-card fade-in">
+                    <h3 class="corporate-card-title">Leadership</h3>
+                    <div class="info-row">
+                        <span class="info-label">Representative</span>
+                        <span class="info-value">Sumon</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Business Areas</span>
+                        <span class="info-value">Healthcare, IT, International Trade</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Global Offices</span>
+                        <span class="info-value">Japan, Bangladesh, UAE, Malaysia</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Status</span>
+                        <span class="info-value">Active & Compliant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Bhai Bon Health Care</h3>
+                    <p>A Japanese-registered global enterprise unifying healthcare innovation, IT solutions, and international trade.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Global Offices</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Tokyo Headquarters</a></li>
+                        <li><a href="#">Dhaka IT Center</a></li>
+                        <li><a href="#">Dubai Trade Hub</a></li>
+                        <li><a href="#">Kuala Lumpur Office</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Business Divisions</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Healthcare Export</a></li>
+                        <li><a href="#">IT Solutions</a></li>
+                        <li><a href="#">International Trade</a></li>
+                        <li><a href="#">Immigration Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Partner Portal</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                        <li><a href="#">Supplier Network</a></li>
+                        <li><a href="#">Contact Management</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 合同会社 Bhai Bon Health Care. All rights reserved. | 法人番号: 9011503006276</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple animation for elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(el);
+            });
+            
+            // Verification form handling
+            const verifyBtn = document.querySelector('.verify-form .btn-primary');
+            const verifyInput = document.getElementById('verify-hash');
+            
+            verifyBtn.addEventListener('click', function() {
+                if (!verifyInput.value) {
+                    alert('Please enter a document hash to verify');
+                    return;
+                }
+                
+                // Simulate verification process
+                verifyBtn.innerHTML = 'Verifying... <i class="fas fa-spinner fa-spin"></i>';
+                
+                setTimeout(() => {
+                    // Random result for demo
+                    if (Math.random() > 0.5) {
+                        alert('✅ Document verified successfully! This document is authentic.');
+                    } else {
+                        alert('❌ Document verification failed. This document may not be authentic.');
+                    }
+                    
+                    verifyBtn.innerHTML = 'Verify Document';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
